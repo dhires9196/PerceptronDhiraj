@@ -5,6 +5,14 @@ import joblib # FOR SAVING MY MODEL AS A BINARY FILE
 from matplotlib.colors import ListedColormap
 import os
 def prepare_data(df):
+  """it is used in prepering the data
+
+  Args:
+      df (pd.dataframe): it is data frame arguments
+
+  Returns:
+      tuple: it returns the tuples of dependent and independent varaible
+  """
   X = df.drop("y", axis=1)
 
   y = df["y"]
