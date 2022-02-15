@@ -1,11 +1,14 @@
+from time import asctime
 from utils.model import Perceptron
 from utils.all_utils import prepare_data, save_plot, save_model
 import pandas as pd
-
+import logging
+log_str='[%(asctime)s - %(name)s - %(levelname)s] %(message)s'
+logging.basicConfig(level=logging.INFO,format=log_str)
 
 def main(data, modelName, plotName, eta, epochs):
     df = pd.DataFrame(data)
-    print(df)
+    logging.info(df)
     X, y = prepare_data(df)
     model = Perceptron(eta=eta, epochs=epochs)
     model.fit(X, y)
